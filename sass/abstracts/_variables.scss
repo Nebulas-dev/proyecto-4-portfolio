@@ -1,0 +1,26 @@
+// Color
+$black: #151515;
+$cyam: #4EE1A0;
+$gray-dark: #242424;
+$gray-light: #D9D9D9;
+$white: #FFFFFF;
+
+$black-gray: #242424;
+
+$gray-bg: #979797;
+
+
+
+// Lineal gradient
+$gradient-sidebar: linear-gradient(
+        to top,
+        rgba($gray-dark, 0.7) 0%,
+        rgba($black, 0.7) 100%);
+
+$gradient-header: linear-gradient(
+        to right,
+        $black 58%,
+        $gray-dark 42%);
+
+// Typography
+$space-grotesk: "Space Grotesk", sans-serif;

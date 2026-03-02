@@ -1,0 +1,262 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.container:nth-of-type(3) {
+    // Background es el generico define todo: 
+    // color, imagen, posición, tamaño, repetición… 
+    // --> si hay cambios en los diferentes 
+    // breakpoint no hereda. Por eso opto por 
+    // utilizar image y color porque solo varia 
+    // la imagen y de esta manera hereda las 
+    // propiedades
+    background-color: $gray-dark;
+    background-image: url(../../img/circle2.svg);
+    background-repeat: no-repeat;
+    background-size: 530px 129px;
+    background-position: 220% 61.5%;
+    overflow-x: hidden;
+
+    @include breakpoint(tablet) {
+        background-image: url(../../img/circle.svg);
+        background-position: -155% 76%;
+    }
+
+    @include breakpoint(desktop) {
+        background-position: -23% 65%;
+        // averiguar para que es este posicionamiento
+        position: relative;
+    }
+
+    .footer {
+        padding: 60px 0;
+
+        @include breakpoint(tablet) {
+            padding: 60px 0 40px;
+        }
+
+        @include breakpoint(desktop) {
+            padding: 84px 0 92px;
+        }
+
+        .contact {
+            margin-bottom: 127px;
+
+            @include breakpoint(tablet) {
+                margin-bottom: 92px;
+                max-width: 445px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            @include breakpoint(desktop) {
+                max-width: 100%;
+
+                display: flex;
+                justify-content: space-between;
+                gap: 220px;
+            }
+
+            &__wrap {
+                // Si el padre es flex y se quiere que los hijos ocupen el mismo ancho
+                flex: 1;
+            }
+
+            &__title {
+                font-size: 40px;
+                line-height: 40px;
+                font-weight: 700;
+                letter-spacing: -1.14px;
+
+                text-align: center;
+                margin-bottom: 20px;
+
+                @include breakpoint(tablet) {
+                    font-size: 72px;
+                    line-height: 72px;
+
+                    letter-spacing: -2.05px;
+
+                    margin-bottom: 20px;
+                }
+
+                @include breakpoint(desktop) {
+                    font-size: 88px;
+                    line-height: 88px;
+
+                    letter-spacing: -2.5px;
+
+                    margin-bottom: 36px;
+                    text-align: start;
+
+                }
+            }
+
+            &__subtitle {
+                font-size: 16px;
+                line-height: 26px;
+                font-weight: 500;
+                color: $gray-light;
+
+                text-align: center;
+                margin-bottom: 50px;
+
+                @include breakpoint(tablet) {
+                    font-size: 18px;
+                    line-height: 28px;
+
+                    margin-bottom: 48px;
+                }
+
+                @include breakpoint(desktop) {
+                    margin-bottom: 0px;
+
+                    text-align: start;
+
+                }
+            }
+
+            &__form {
+                display: flex;
+                flex-direction: column;
+                gap: 32px;
+
+                background-color: $gray-dark;
+
+
+                &-name,
+                &-email {
+                    font-size: 16px;
+                    font-weight: 500;
+
+                    width: 100%;
+                    padding-left: 24px;
+                    padding-bottom: 1rem;
+
+                    box-sizing: border-box;
+
+                    color: $white;
+                    background-color: transparent;
+                    border: 0;
+                    border-bottom: 1px solid $white;
+
+                    &:not(:placeholder-shown):invalid {
+                        border-color: red;
+                    }
+
+                    &:valid {
+                        border-color: green;
+                    }
+                }
+
+                &-message {
+                    font-size: 16px;
+                    font-weight: 500;
+
+                    width: 100%;
+                    padding-left: 24px;
+                    padding-bottom: 4rem;
+                    box-sizing: border-box;
+
+                    color: $white;
+                    //fondo del input transparente
+                    background-color: transparent;
+                    //quitar todos los bordes
+                    border: 0;
+                    border-bottom: 1px solid $white;
+                }
+            }
+
+            &__link {
+                display: flex;
+                justify-content: flex-end;
+
+                margin-top: 32px;
+
+
+                &>a {
+                    display: inline-block;
+                    text-align: right;
+
+                    font-size: 16px;
+                    line-height: 26px;
+                    font-weight: 700;
+                    letter-spacing: 2.29px;
+
+                    position: relative;
+                    margin-bottom: 10px;
+
+                    &::after {
+                        content: "";
+                        width: 100%;
+                        height: 2px;
+                        background-color: $cyam;
+
+                        position: absolute;
+                        left: 0;
+                        bottom: -10px;
+                    }
+
+                    &:hover {
+                        color: $cyam;
+                    }
+                }
+            }
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+
+            @include breakpoint(tablet) {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: none;
+
+                border-top: 1px solid $white;
+                padding-top: 30px;
+            }
+
+            @include breakpoint(tablet) {
+                padding-top: 47px;
+            }
+
+            &__logo {
+
+                img {
+                    width: 129px;
+
+                    @include breakpoint(tablet) {
+                        width: 172px;
+                    }
+                }
+            }
+
+            &__nav {
+                display: flex;
+                align-items: center;
+                gap: 25.6px;
+
+                @include breakpoint(tablet) {
+                    gap: 32px;
+                }
+
+                .icon {
+                    width: 20px;
+                    color: $white;
+
+                    @include breakpoint(tablet) {
+                        width: 25px;
+                    }
+
+                    &:hover {
+                        color: $cyam;
+                    }
+                }
+            }
+        }
+    }
+}

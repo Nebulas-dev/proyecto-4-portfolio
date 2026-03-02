@@ -1,0 +1,49 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+
+body {
+    // aplica dicha fuente a todo el proyecto
+    font-family: $space-grotesk;
+    // overflow-x: controla elementos que sobresalen del contenedor body unicamente ocultandolos
+    overflow-x: hidden;
+
+    background-color: $black;
+}
+
+// contenedor generico
+.container {
+    // centra automaticamente en el centro del contenedor
+    margin: 0 auto;
+    // por seguridad
+    padding: 0 16px;
+    color: $white;
+
+    @include breakpoint(tablet) {
+        padding: 0 30px;
+    }
+
+    @include breakpoint(desktop) {
+        padding: 0 165px;
+    }
+}
+
+ul {
+    // elimina marcadores de lista
+    list-style: none;
+}
+
+a {
+    // elimina subrayado de enlaces
+    text-decoration: none;
+    color: $white;
+}
+
+img {
+    // desaparece ese pequeño espacio abajo y se comporta como un bloque normal.
+    display: block;
+    // se ajusta al ancho del contenedor padre. Muy útil para hacer imágenes responsivas, evita salida contenedor.
+    width: 100%;
+    // mantiene proporción original. Asegura no se distorsione al redimensionar.
+    height: auto;
+}
